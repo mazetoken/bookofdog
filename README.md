@@ -1,4 +1,3 @@
-# bookofdog
-The Book of Dog on Dogechain
+# The Book of Dog - blockchain guestbook on Dogechain
 
-TheBookOfDog contract (flattened) is verified on [Dogechain explorer](https://explorer.dogechain.dog/address/0x83f5E6f0Eb916c067b7cCd4E08C7078937Fb4d3B/contracts)
+The Book of Dog is [here](https://bookofdog.doge.wf)
