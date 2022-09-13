@@ -37,13 +37,13 @@
          You must have MetaMask wallet (or other wallet) configured for <a href="https://dogechain.dog">Dogechain</a> <img src="img/dogechain.png" alt="Dogechain image" width="32px"><br>
          Network: Dogechain<br>
          Chain ID: 2000<br>
-         RPC URL: https://rpc.dogmoney.money/public/full<br>
+         RPC URL: https://rpc.dogmoney.money<br>
          or https://rpc.dogechain.dog<br>
          Symbol: WDOGE<br>
          Explorer: https://explorer.dogmoney.money<br> 
          or https://explorer.dogechain.dog
          <br><br>
-         You need WDOGE for blockchain transaction fee ("antispam mode": 0.05 WDOGE is included).<br>
+         You need WDOGE for blockchain transaction fee ("antispam mode": 0.025 WDOGE is included).<br>
          Be civilised. No NSFW content, no hate speech etc.
          </p>
          <br>
@@ -65,7 +65,7 @@
          <p>
             Name: THE BOOK OF DOG<br>
             Symbol: BODO<br>
-            Contract (verified):<br> <a href="https://explorer.dogmoney.money/address/0x83f5E6f0Eb916c067b7cCd4E08C7078937Fb4d3B/transactions">0x83f5e6f0eb916c067b7ccd4e08c7078937fb4d3b</a><br>
+            Contract (verified):<br> <a href="https://explorer.dogmoney.money/address/0x83f5E6f0Eb916c067b7cCd4E08C7078937Fb4d3B/transactions">0x83f5E6f0Eb916c067b7cCd4E08C7078937Fb4d3B</a><br>
             Initial supply: 0.00000000<br>
             No hard cap supply<br>
             Current mint amount: 600 BODO (550 for you and 50 for The Book of Dog)<br>
@@ -97,15 +97,56 @@
 
          <hr>
 
-         <h3>Stake & Trade</h3>
+         <h3>Stake</h3>
          <br>
-         <p>Stake BODO <img src="img/bodo.png" alt="BODO image" width="56"> and receive INVADERS <img src="img/invaders.png" alt="INVADERS image" width="56">- coming soon</p>
+         <p>Stake BODO <img src="img/bodo.png" alt="BODO image" width="56"> and receive INVADERS <img src="img/invaders.png" alt="INVADERS image" width="56"><br>
+         Reward is continuously compounding: 100% daily per amount staked.<br>
+         If you want to stake more, you must first unstake, otherwise you will lose the calculated reward.
+         </p>
+         <div class="row" style="text-align:center">
+            <div>
+               <button onclick="connect()" class="btn btn-primary btn-sm">Connect</button>
+               <br><br>
+               <input id="amount1" type="text" size="10" placeholder="amount">
+               <br>
+               <button onclick="approve()" class="btn btn-primary btn-sm">Approve BODO</button>
+               <button onclick="stakeTokens()" class="btn btn-primary btn-sm">Stake BODO</button><br>
+               maximum 10000 BODO
+               <div id="lang7"></div>
+               <p></p>
+            </div>
+            <p></p>
+            <div>
+               <button onclick="stakingBalance()" class="btn btn-primary btn-sm">Your balance staked</button>
+               <div id="lang8"></div>
+               <p></p>
+            </div>
+            <p></p>
+            <div>
+               <button onclick="calculateReward()" class="btn btn-primary btn-sm">Calculate reward (INVADERS)</button>
+               <div id="lang9"></div>
+               <p></p>
+            </div>
+            <p></p>
+            <div>
+               <button onclick="unstakeTokens()" class="btn btn-primary btn-sm">Unstake BODO and get INVADERS (reward)</button>
+               <div id="lang10"></div>
+               <p></p>
+            </div>
+            <p></p>
+         </div>
+         
+         <br>
+         <p>The Book of Dog Stake contract (verified):<br> <a href="https://explorer.dogmoney.money/address/0x2efDE281498838C5405b4284d87aC319117e9B3C/transactions">0x2efDE281498838C5405b4284d87aC319117e9B3C</a></p>
+         <br>
          <p>BODO on <a href="https://app.dogmoney.money/swap?inputCurrency=&outputCurrency=0x83f5E6f0Eb916c067b7cCd4E08C7078937Fb4d3B">DogMoney DEX</a> <img src="img/dogmoney.png" alt="DogMoney image" width="56"></p>
          <br>
 
+         <hr>
+
          <h3>Other applications</h3>
          <br>
-         <p>Distribute WDOGE, BODO or other tokens to multiple addresses - <a href="https://dispersedoge.netlify.app/">Disperse on Dogechain</a></p>
+         <p>Distribute WDOGE, BODO, INVADERS or other tokens to multiple addresses - <a href="https://dispersedoge.netlify.app/">Disperse on Dogechain</a></p>
          <p>BLOCKCHAIN INVADERS <img src="img/invaders.png" alt="INVADERS image" width="56"> <a href="https://invaders.doge.wf">Token and Faucet</a></p>
          <p>RENDERAI NFT <a href="https://renderai.netlify.app">Collection</a><br><br><img src="img/renderainft.png" alt="RENDERAI image" width="512"></p>
          <br>
@@ -152,22 +193,23 @@
          const tokenSymbol = 'BODO';
          const tokenDecimals = 8;
          const tokenImage = 'https://bafkreicqe43tk2hpwvshrsxidwzc5rbqtg2czntdo5jbgbtnkylirvm3di.ipfs.nftstorage.link';
-         ethereum.request({
-                  method: 'wallet_watchAsset',
-                  params: {
-                  type: 'ERC20',
-                  options: {
-                     address: tokenAddress,
-                     symbol: tokenSymbol,
-                     decimals: tokenDecimals,
-                     image: tokenImage,
-                  },
-                  },
-         });
+            ethereum.request({
+               method: 'wallet_watchAsset',
+               params: {
+               type: 'ERC20',
+               options: {
+                  address: tokenAddress,
+                  symbol: tokenSymbol,
+                  decimals: tokenDecimals,
+                  image: tokenImage,
+               },
+               },
+            });
          };
       </script>
 
       <script src="contractTheBookOfDog.js"></script>
+      <script src="contractTheBookOfDogStake.js"></script>
       <script src="functions.js"></script>
       <script src="switch.js"></script>
    </body>
