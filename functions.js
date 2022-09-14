@@ -65,7 +65,7 @@ function countMessage() {
 
 function allMessages1() {
     var content = "";
-    for(i=1; i < 101; i++) {
+    for(i=1; i < 33; i++) {
     var event = contractTheBookOfDog.methods.messages(i).call()
         .then(function (result) {
         console.log(result);
@@ -78,7 +78,7 @@ function allMessages1() {
 
 function allMessages2() {
     var content = "";
-    for(i=101; i < 201; i++) {
+    for(i=277; i < 350; i++) {
     var event = contractTheBookOfDog.methods.messages(i).call()
         .then(function (result) {
         console.log(result);
