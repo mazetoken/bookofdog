@@ -10,7 +10,7 @@ function sendMessage() {
     var content = "Sending transaction from: ";
     content += dogMaster;
     $("#lang").html(content);
-    var event = contractTheBookOfDog.methods.sendMessage(sender, message).send({ from: dogMaster, value: 25000000000000000 })
+    var event = contractTheBookOfDog.methods.sendMessage(sender, message).send({ from: dogMaster, value: 50000000000000000 })
         .then(function (receipt) {
             console.log(receipt);
     var content = "Transaction sent! You got 550 BODO: <br>";
@@ -79,6 +79,19 @@ function allMessages1() {
 function allMessages2() {
     var content = "";
     for(i=277; i < 350; i++) {
+    var event = contractTheBookOfDog.methods.messages(i).call()
+        .then(function (result) {
+        console.log(result);
+    //content += "<tr>" + "<td>" + "id: " + result[0] + "</td>" + "<td>" + "name: " + result[1] + "</td>" + "<td>" + "post: " + result[2] + "</td>" + "</tr>";
+    content += " <hr> " + " 🐕‍🦺 " + "id: " + result[0] + " <br> " + " 🐕 " + "guest: " + result[1] + " <br> " + " 📃 " + "post: " + result[2] + " <br> ";
+    $("#lang6").html(content);
+       });;
+    }
+};
+
+function allMessages3() {
+    var content = "";
+    for(i=350; i < 450; i++) {
     var event = contractTheBookOfDog.methods.messages(i).call()
         .then(function (result) {
         console.log(result);
