@@ -20,11 +20,11 @@
 			<input class="form-check-input" type="checkbox" id="lightSwitch"/>
 		</div>
 
-		<div class="row" style="text-align:right">
+		<!-- <div class="row" style="text-align:right">
 			<div>
 				<button onclick="connect()" class="btn btn-primary btn-sm">Connect</button>
 			</div>
-		</div>
+		</div> -->
 
       <div style="text-align:center">
          <img src="img/bod.png" alt="BOD image" width="480px">
@@ -34,14 +34,8 @@
             - Be part of history -
          </p>
          <p style="font-size: 14px;">
-         You must have MetaMask wallet (or other wallet) configured for <a href="https://dogechain.dog">Dogechain</a> <img src="img/dogechain.png" alt="Dogechain image" width="32px"><br>
-         Network: Dogechain<br>
-         Chain ID: 2000<br>
-         RPC URL: https://rpc.dogmoney.money<br>
-         or https://rpc.dogechain.dog<br>
-         Symbol: WDOGE<br>
-         Explorer: https://explorer.dogmoney.money<br> 
-         or https://explorer.dogechain.dog
+         <i>You need a wallet (e.g. MetaMask) connected to <a href="https://docs.dogechain.dog">Dogechain</a> network<br>
+            Reload the page if you are not connected or undefined</i>
          <br><br>
          You need WDOGE for blockchain transaction fee ("antispam mode": 0.05 WDOGE is included).<br>
          Be civilised. No NSFW content, no hate speech etc.<br>
@@ -67,8 +61,8 @@
             Name: THE BOOK OF DOG<br>
             Symbol: BODO<br>
             Contract (verified):<br>
-            <a href="https://explorer.dogechain.dog/address/0x83f5E6f0Eb916c067b7cCd4E08C7078937Fb4d3B/contracts">0x83f5E6f0Eb916c067b7cCd4E08C7078937Fb4d3B</a><br>
-            <a href="https://explorer.dogmoney.money/address/0x83f5E6f0Eb916c067b7cCd4E08C7078937Fb4d3B/contracts">0x83f5E6f0Eb916c067b7cCd4E08C7078937Fb4d3B</a><br>
+            <a href="https://explorer.dogechain.dog/address/0x83f5E6f0Eb916c067b7cCd4E08C7078937Fb4d3B/contracts#address-tabs">0x83f5E6f0Eb916c067b7cCd4E08C7078937Fb4d3B</a><br>
+            <a href="https://explorer.dogmoney.money/address/0x83f5E6f0Eb916c067b7cCd4E08C7078937Fb4d3B/contracts#address-tabs">0x83f5E6f0Eb916c067b7cCd4E08C7078937Fb4d3B</a><br>
             Initial supply: 0.00000000<br>
             No hard cap supply<br>
             Current mint amount: 1100 BODO (1000 for you and 100 for The Book of Dog)<br>
@@ -108,8 +102,9 @@
          </p>
          <div class="row" style="text-align:center">
             <div>
-               <button onclick="connect()" class="btn btn-primary btn-sm">Connect</button>
-               <br><br>
+               <!-- <button onclick="connect()" class="btn btn-primary btn-sm">Connect</button> -->
+               <p style="font-size: 14px;"><i>Reload the page if you are not connected or undefined</i></p>
+               <br>
                <input id="amount1" type="text" size="10" placeholder="amount">
                <br>
                <button onclick="approve()" class="btn btn-primary btn-sm">Approve BODO</button>
@@ -141,8 +136,8 @@
          
          <br>
          <p>The Book of Dog Stake contract (verified):<br>
-            <a href="https://explorer.dogechain.dog/address/0x2efDE281498838C5405b4284d87aC319117e9B3C/contracts">0x2efDE281498838C5405b4284d87aC319117e9B3C</a><br>
-            <a href="https://explorer.dogmoney.money/address/0x2efDE281498838C5405b4284d87aC319117e9B3C/contracts">0x2efDE281498838C5405b4284d87aC319117e9B3C</a>
+            <a href="https://explorer.dogechain.dog/address/0x2efDE281498838C5405b4284d87aC319117e9B3C/contracts#address-tabs">0x2efDE281498838C5405b4284d87aC319117e9B3C</a><br>
+            <a href="https://explorer.dogmoney.money/address/0x2efDE281498838C5405b4284d87aC319117e9B3C/transactions">0x2efDE281498838C5405b4284d87aC319117e9B3C</a>
          </p>
          <br>
          <p>BODO on <a href="https://app.dogmoney.money/swap?inputCurrency=&outputCurrency=0x83f5E6f0Eb916c067b7cCd4E08C7078937Fb4d3B">DogMoney DEX</a> <img src="img/dogmoney.png" alt="DogMoney image" width="56"></p>
@@ -185,11 +180,11 @@
          web3.eth.defaultAccount = web3.eth.accounts[0];
       </script>
 
-      <script>
+      <!-- <script>
          function connect() {
          location.reload();
          }
-      </script>
+      </script> -->
 
       <script>
          function addIconB() {
