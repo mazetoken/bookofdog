@@ -13,7 +13,7 @@ function sendMessage() {
     var event = contractTheBookOfDog.methods.sendMessage(sender, message).send({ from: dogMaster, value: 50000000000000000 })
         .then(function (receipt) {
             console.log(receipt);
-    var content = "Transaction sent! You got 550 BODO: <br>";
+    var content = "Transaction sent! You got 1000 BODO: <br>";
             //alert("Done! You got 550 BODO");
     content += JSON.stringify(receipt.transactionHash);
     content += "<br> Woof-woof!";
