@@ -43,19 +43,19 @@ function viewMessage() {
     //var content = "The Book Of Dog post: <br>";
     var content = "";
         console.log(result);
-    content += " 🐕‍🦺 " + "id: " + result[0] + " <br> " + " 🐕 " + "guest: " + result[1] + " <br> " + " 📃 " + "post: " + result[2] + " <br> ";
+    content += " 🐕‍🦺 " + "ID: " + result[0] + " <br> " + " 🐕 " + "guest: " + result[1] + " <br> " + " 📃 " + "post: " + result[2] + " <br> ";
     $("#lang3").html(content);
        });;
 };
 
 function viewMessage2() {
-    var id = $("#id").val();
-    var event = contractTheBookOfDog.methods.messages(id).call()
+    var id2 = $("#id2").val();
+    var event = contractTheBookOfDog.methods.messages(id2).call()
         .then(function (result) {
     //var content = "The Book Of Dog post: <br>";
     var content = "";
         console.log(result);
-    content += " 🐕‍🦺 " + "id: " + result[0] + " <br> " + " 🐕 " + "guest: " + result[1] + " <br> " + " 📃 " + "post: " + "<img src=" + result[2] + ">" + " <br> ";
+    content += " 🐕‍🦺 " + "ID: " + result[0] + " <br> " + " 🐕 " + "guest: " + result[1] + " <br> " + " 📃 " + "post: " + "<img src=" + result[2] + ">" + " <br> ";
     $("#lang3").html(content);
        });;
 };
