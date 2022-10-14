@@ -1,8 +1,3 @@
-// Connect
-//function connect() {
-    //location.reload();
-//}
-
 // The Book Of Dog
 function sendMessage() {
     var sender = $("#sender").val();
@@ -49,6 +44,18 @@ function viewMessage() {
     var content = "";
         console.log(result);
     content += " 🐕‍🦺 " + "id: " + result[0] + " <br> " + " 🐕 " + "guest: " + result[1] + " <br> " + " 📃 " + "post: " + result[2] + " <br> ";
+    $("#lang3").html(content);
+       });;
+};
+
+function viewMessage2() {
+    var id = $("#id").val();
+    var event = contractTheBookOfDog.methods.messages(id).call()
+        .then(function (result) {
+    //var content = "The Book Of Dog post: <br>";
+    var content = "";
+        console.log(result);
+    content += " 🐕‍🦺 " + "id: " + result[0] + " <br> " + " 🐕 " + "guest: " + result[1] + " <br> " + " 📃 " + "post: " + "<img src=" + result[2] + ">" + " <br> ";
     $("#lang3").html(content);
        });;
 };

@@ -20,26 +20,20 @@
 			<input class="form-check-input" type="checkbox" id="lightSwitch"/>
 		</div>
 
-		<!-- <div class="row" style="text-align:right">
-			<div>
-				<button onclick="connect()" class="btn btn-primary btn-sm">Connect</button>
-			</div>
-		</div> -->
-
       <div style="text-align:center">
-         <img src="img/bod.png" alt="BOD image" width="480px">
-         <br><br>
+         <!-- <img src="img/bod.png" alt="BOD image" width="480px">
+         <br><br> -->
 
-         <p>The Book of Dog is a blockchain guestbook and token distribution application<br>
+         <h1>The Book of Dog</h1>
+         <p>Blockchain guestbook and token distribution application<br>
             - Be part of history -
          </p>
-         <p style="font-size: 14px;">
-         <i>You need a wallet (e.g. MetaMask) connected to <a href="https://docs.dogechain.dog">Dogechain</a> network<br>
-            Reload the page if you are not connected or undefined</i>
+         <p>
+         <i>You need a wallet (e.g. MetaMask) connected to <a href="https://dogechain.dog">Dogechain</a> <img src="img/dogechain.png" alt="Dogechain image" width="56"></i>
          <br><br>
-         You need WDOGE for blockchain transaction fee ("antispam mode": 0.05 WDOGE is included).<br>
+         You need WDOGE for blockchain transaction fee ("antispam mode": 0.05 WDOGE is included)<br><br>
          Be civilised. No NSFW content, no hate speech etc.<br>
-         Do not spam. The spam flood will be swept away from here.
+         Do not spam. The spam flood will be swept away from here
          </p>
          <br>
 
@@ -47,15 +41,23 @@
 
          <h3>Submit a guest post at any time and mint BODO tokens</h3>
          <br>
-         <img src="img/bodo.png" alt="BODO image" width="180"><br>
-         <br><br>
+         <p>You can send a text message<br>
+            or image link only (e.g. https://bookofdog.netlify.app/img/dogechain.png)<br>
+            Share a post Id with your friends
+         </p>
+         <p style="font-size: 14px;"><i>Reload the page if you are not connected or undefined</i></p>
+         <br>
          <input id="sender" type="text" size="20" placeholder="guest name (required)"><br>
          <input id="message" type="text" size="50" placeholder="message (required)">
          <p><button onclick="sendMessage()" class="btn btn-primary btn-sm">Submit & Mint</button></p>
          <div id="lang"></div>
          <div id="lang1"></div>
          <br>
+         <p>Current mint amount: 1100 BODO (1000 for you and 100 for The Book of Dog)</p>
+         <br>
          <p><button onclick="addIconB()" class="btn btn-primary btn-sm">add BODO (with icon) to MetaMask</button></p>
+         <br>
+         <img src="img/bodo.png" alt="BODO image" width="180"><br>
          <br>
          <p>
             Name: THE BOOK OF DOG<br>
@@ -65,7 +67,6 @@
             <a href="https://explorer.dogmoney.money/address/0x83f5E6f0Eb916c067b7cCd4E08C7078937Fb4d3B/contracts#address-tabs">0x83f5E6f0Eb916c067b7cCd4E08C7078937Fb4d3B</a><br>
             Initial supply: 0.00000000<br>
             No hard cap supply<br>
-            Current mint amount: 1100 BODO (1000 for you and 100 for The Book of Dog)<br>
          </p>
          <br>
          <p><button onclick="totalSupply()" class="btn btn-primary btn-sm">Check BODO total (circulating) supply</button></p>
@@ -77,29 +78,32 @@
          <h3>View post(s)</h3>
          <br>
          <input id="id" type="text" size="10" placeholder="post id e.g. 1">
-         <p><button onclick="viewMessage()" class="btn btn-primary btn-sm">View post by id</button></p>
+         <p><button onclick="viewMessage()" class="btn btn-primary btn-sm">View post by id if you sent a text message</button></p>
+         <div id="lang3"></div>
+         <br>
+         <input id="id" type="text" size="10" placeholder="post id e.g. 1">
+         <p><button onclick="viewMessage2()" class="btn btn-primary btn-sm">View post by id if you sent image link</button></p>
          <div id="lang3"></div>
          <br>
          <p><button onclick="countMessage()" class="btn btn-primary btn-sm">Total number (ids) of posts</button></p>
          <div id="lang4"></div>
          <br>
-         <p style="font-size: 14px;">
+         <p><button onclick="window.location.href='page1.html';" class="btn btn-primary btn-sm">View guestbook/posts</button></p>
+         <br>
+         <p>
             View posts on <a href="https://explorer.dogechain.dog/address/0x83f5E6f0Eb916c067b7cCd4E08C7078937Fb4d3B/transactions">Dogechain explorer</a><br>
             or on <a href="https://explorer.dogmoney.money/address/0x83f5E6f0Eb916c067b7cCd4E08C7078937Fb4d3B/transactions">DogMoney Dogechain explorer</a><br>
-            Click/tap any transaction, scroll down to "Input"
+            <i>Click/tap any transaction, scroll down to "Input"</i>
          </p>
-         <br>
-         <p><button onclick="window.location.href='page1.html';" class="btn btn-primary btn-sm">View guestbook</button><br></p>
-         <br>
          <br>
 
          <hr>
 
          <h3>Stake</h3>
          <br>
-         <p>Stake BODO <img src="img/bodo.png" alt="BODO image" width="56"> and receive INVADERS <img src="img/invaders.png" alt="INVADERS image" width="56"><br>
-         Reward is continuously compounding: 10% daily per amount staked.<br>
-         If you want to stake more, you must first unstake, otherwise you will lose the calculated reward.
+         <p>Stake BODO <img src="img/bodo.png" alt="BODO image" width="56"> and receive <a href="https://invaders.doge.wf">INVADERS</a> <img src="img/invaders.png" alt="INVADERS image" width="56"></p>
+         <p>Reward is continuously compounding: 10% daily per amount staked<br>
+            If you want to stake more, you must first unstake, otherwise you will lose the calculated reward
          </p>
          <div class="row" style="text-align:center">
             <div>
@@ -112,25 +116,25 @@
                <button onclick="stakeTokens()" class="btn btn-primary btn-sm">Stake BODO</button><br>
                maximum 10000 BODO
                <div id="lang7">
-               <p></p>
+               <br>
             </div>
             <p></p>
             <div>
                <button onclick="stakingBalance()" class="btn btn-primary btn-sm">Your balance staked</button>
                <div id="lang8"></div>
-               <p></p>
+               <br>
             </div>
             <p></p>
             <div>
                <button onclick="calculateReward()" class="btn btn-primary btn-sm">Calculate reward (INVADERS)</button>
                <div id="lang9"></div>
-               <p></p>
+               <br>
             </div>
             <p></p>
             <div>
                <button onclick="unstakeTokens()" class="btn btn-primary btn-sm">Unstake BODO and get INVADERS (reward)</button>
                <div id="lang10"></div>
-               <p></p>
+               <br>
             </div>
             <p></p>
          </div>
@@ -143,10 +147,11 @@
          <br>
          <p>BODO on <a href="https://app.dogmoney.money/swap?inputCurrency=&outputCurrency=0x83f5E6f0Eb916c067b7cCd4E08C7078937Fb4d3B">DogMoney DEX</a> <img src="img/dogmoney.png" alt="DogMoney image" width="56"></p>
          <br>
+         <p></p>
 
          <hr>
 
-         <h3>Other applications</h3>
+         <!-- <h3>Other applications</h3>
          <p></p>
          <p><a href="https://invaders.doge.wf">BLOCKCHAIN INVADERS token</a> <img src="img/invaders.png" alt="INVADERS image" width="56"></p>
          <p><a href="https://renderai.art">RENDERAI NFT</a> <img src="img/renderai.png" alt="RENDERAI image" width="56"></p>
@@ -154,11 +159,10 @@
          <p></p>
          <br>
 
-         <hr>
+         <hr> -->
 
          <footer style="font-size: 14px;">
             <p><a href="https://t.me/bookofdog_doge"><img src="img/telegram.png" alt="Telegram" width="32"></a>
-               <a href="https://t.me/mazetokens"><img src="img/telegram.png" alt="Telegram" width="32"></a>
                <a href="https://github.com/mazetoken/contracts"><img src="img/github.png" alt="Github" width="32"></a>
             </p>
          </footer>
