@@ -77,7 +77,7 @@ function allMessages1() {
         .then(function (result) {
         console.log(result);
     //content += "<tr>" + "<td>" + "id: " + result[0] + "</td>" + "<td>" + "name: " + result[1] + "</td>" + "<td>" + "post: " + result[2] + "</td>" + "</tr>";
-    content += " <hr> " + " 🐕‍🦺 " + "id: " + result[0] + " <br> " + " 🐕 " + "guest: " + result[1] + " <br> " + " 📃 " + "post: " + result[2] + " <br> ";
+    content += " <hr> " + " 🐕‍🦺 " + "ID: " + result[0] + " <br> " + " 🐕 " + "guest: " + result[1] + " <br> " + " 📃 " + "post: " + result[2] + " <br> ";
     $("#lang5").html(content);
        });;
     }
@@ -90,7 +90,7 @@ function allMessages2() {
         .then(function (result) {
         console.log(result);
     //content += "<tr>" + "<td>" + "id: " + result[0] + "</td>" + "<td>" + "name: " + result[1] + "</td>" + "<td>" + "post: " + result[2] + "</td>" + "</tr>";
-    content += " <hr> " + " 🐕‍🦺 " + "id: " + result[0] + " <br> " + " 🐕 " + "guest: " + result[1] + " <br> " + " 📃 " + "post: " + result[2] + " <br> ";
+    content += " <hr> " + " 🐕‍🦺 " + "ID: " + result[0] + " <br> " + " 🐕 " + "guest: " + result[1] + " <br> " + " 📃 " + "post: " + result[2] + " <br> ";
     $("#lang6").html(content);
        });;
     }
@@ -103,7 +103,7 @@ function allMessages3() {
         .then(function (result) {
         console.log(result);
     //content += "<tr>" + "<td>" + "id: " + result[0] + "</td>" + "<td>" + "name: " + result[1] + "</td>" + "<td>" + "post: " + result[2] + "</td>" + "</tr>";
-    content += " <hr> " + " 🐕‍🦺 " + "id: " + result[0] + " <br> " + " 🐕 " + "guest: " + result[1] + " <br> " + " 📃 " + "post: " + result[2] + " <br> ";
+    content += " <hr> " + " 🐕‍🦺 " + "ID: " + result[0] + " <br> " + " 🐕 " + "guest: " + result[1] + " <br> " + " 📃 " + "post: " + result[2] + " <br> ";
     $("#lang6").html(content);
        });;
     }
