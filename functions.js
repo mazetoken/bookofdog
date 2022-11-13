@@ -5,7 +5,7 @@ function sendMessage() {
     var content = "Sending transaction from: ";
     content += dogMaster;
     $("#lang").html(content);
-    var event = contractTheBookOfDog.methods.sendMessage(sender, message).send({ from: dogMaster, value: 50000000000000000 })
+    var event = contractTheBookOfDog.methods.sendMessage(sender, message).send({ from: dogMaster, value: 50000000000000000, gasPrice: 250000000000 })
         .then(function (receipt) {
             console.log(receipt);
     var content = "Transaction sent! You got 1000 BODO: <br>";
@@ -134,7 +134,7 @@ function stakeTokens() {
     var content = "Sending transaction from: ";
     content += dogMaster;
     $("#lang7").html(content);
-    var event = contractTheBookOfDogStake.methods.stakeTokens(amount3).send({ from: dogMaster })
+    var event = contractTheBookOfDogStake.methods.stakeTokens(amount3).send({ from: dogMaster, gasPrice: 250000000000 })
         .then(function (receipt) {
             console.log(receipt);
     var content = "Transaction sent! Staked!: ";
@@ -168,7 +168,7 @@ function unstakeTokens() {
     var content = "Sending transaction from: ";
     content += dogMaster;
     $("#lang10").html(content);
-    var event = contractTheBookOfDogStake.methods.unstakeTokens().send({ from: dogMaster })
+    var event = contractTheBookOfDogStake.methods.unstakeTokens().send({ from: dogMaster, gasPrice: 250000000000 })
         .then(function (receipt) {
             console.log(receipt);
     var content = "Transaction sent! ";
