@@ -117,7 +117,7 @@ function approve() {
     var content = "Approving transaction from: ";
     content += dogMaster;
     $("#lang7").html(content);
-    var event = contractTheBookOfDog.methods.approve("0x2efDE281498838C5405b4284d87aC319117e9B3C", amount3).send({ from: dogMaster })
+    var event = contractTheBookOfDog.methods.approve("0x2efDE281498838C5405b4284d87aC319117e9B3C", amount3).send({ from: dogMaster, gasPrice: 250000000000 })
         .then(function (receipt) {
             console.log(receipt);
     var content = "Approved!: ";
