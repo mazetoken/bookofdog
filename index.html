@@ -1,227 +1,194 @@
 <!DOCTYPE html>
 <html lang="en">
-   <head>
-      <meta charset="utf-8"> 
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <meta name="description" content="The Book of Dog - blockchain guestbook">
-      <meta name="web" content="https://bookofdog.doge.wf">
-	   <link rel="icon" type="image/ico" sizes="32x32" href="img/bfavicon.ico">
-      <title>The Book of Dog</title>
-      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
-		<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.1/dist/jquery.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
-      <script src="https://cdn.jsdelivr.net/npm/web3@1.8.0/dist/web3.min.js" integrity="sha256-1TLx50r3wQ52OlAm5jSfpTwbN9MJ51NysfLmsXmUPDk=" crossorigin="anonymous"></script>
-   </head>
+  <head>
+    <meta charset="utf-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="The Book of Dog - blockchain guestbook">
+    <meta name="web" content="https://bookofdog.doge.wf">
+    <link rel="icon" type="image/ico" sizes="32x32" href="img/bfavicon.ico">
+    <title>The Book of Dog</title>
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <script src="bootstrap.min.js"></script>
+    <script src="web3.min.js"></script>
+    <script src="jquery.min.js"></script>
+  </head>
 
   <body class="container">
 
 		<div class="form-check form-switch">
-		   <label class="form-check-label" for="lightSwitch"></label>
-			<input class="form-check-input" type="checkbox" id="lightSwitch"/>
+      <label class="form-check-label" for="lightSwitch"></label>
+      <input class="form-check-input" type="checkbox" id="lightSwitch"/>
 		</div>
 
-      <div style="text-align:center">
-         <!-- <img src="img/bod.png" alt="BOD image" width="480px">
-         <br><br> -->
+    <div style="text-align:center">
 
-         <h1>The Book of Dog</h1>
-         <p>Blockchain guestbook and token distribution application<br>
-            - Be part of history -
-         </p>
-         <p>
-         <i>You need a wallet (e.g. MetaMask) connected to <a href="https://dogechain.dog">Dogechain</a> <img src="img/dogechain.png" alt="Dogechain image" width="56"></i>
-         <br><br>
-         You need WDOGE for blockchain transaction fee ("antispam mode": 0.05 WDOGE is included).<br><br>
-         The Book of Dog does not assume any responsibility for what you post.<br>
-         Be civilised. No NSFW content, no hate speech etc.<br>
-         Do not spam.<br>The spam flood will be swept away from here.
-         </p>
-         <br>
+      <h1>The Book of Dog</h1>
+      <p>Blockchain guestbook and the BODO token distribution application<br>
+        - Be part of history -
+      </p>
 
-         <hr>
+      <p>
+        <i>You need a wallet (e.g. MetaMask) connected to <a href="https://dogechain.dog">Dogechain</a> <img src="img/dogechain.png" alt="Dogechain image" width="56"></i>
+        <br>
+        <button id="connect" class="btn btn-primary btn-sm"">Connect wallet</button>
+        <p>Connected to: <span id="wallet-address"></span></p>
+        <br>
+        You need WDOGE for blockchain transaction fee ("antispam mode": 0.01 WDOGE is included).<br><br>
+        The Book of Dog does not assume any responsibility for what you post.<br>
+        Be civilised. No NSFW content, no hate speech etc.<br>
+        Do not spam.<br>The spam flood will be swept away from here.
+      </p>
+      <br>
 
-         <h3>Submit a guest post at any time and mint BODO tokens</h3>
-         <br>
-         <p>You can send a text message<br>
-            or only link to image (look at post ID 365)<br>
-            Share your post ID with friends
-         </p>
-         <p style="font-size: 14px;"><i>Reload the page if you are not connected or undefined</i></p>
-         <br>
-         <input id="sender" type="text" size="20" placeholder="guest name (required)"><br>
-         <input id="message" type="text" size="50" placeholder="message (required)">
-         <p><button onclick="sendMessage()" class="btn btn-primary btn-sm">Submit & Mint</button></p>
-         <div id="lang"></div>
-         <div id="lang1"></div>
-         <br>
-         <p>Current mint amount: 1100 BODO (1000 for you and 100 for The Book of Dog)</p>
-         <br>
-         <p><button onclick="addIconB()" class="btn btn-primary btn-sm">add BODO (with icon) to MetaMask</button></p>
-         <br>
-         <img src="img/bodo.png" alt="BODO image" width="180"><br>
-         <br>
-         <p>
-            Name: THE BOOK OF DOG<br>
-            Symbol: BODO<br>
-            Contract (verified):<br>
-            <a href="https://explorer.dogechain.dog/address/0x83f5E6f0Eb916c067b7cCd4E08C7078937Fb4d3B/contracts#address-tabs">0x83f5E6f0Eb916c067b7cCd4E08C7078937Fb4d3B</a><br>
-            <a href="https://explorer.dogmoney.money/address/0x83f5E6f0Eb916c067b7cCd4E08C7078937Fb4d3B/contracts#address-tabs">0x83f5E6f0Eb916c067b7cCd4E08C7078937Fb4d3B</a><br>
-            Initial supply: 0.00000000<br>
-            No hard cap supply<br>
-         </p>
-         <br>
-         <p><button onclick="totalSupply()" class="btn btn-primary btn-sm">Check BODO total (circulating) supply</button></p>
-			<div id="lang2"></div>
-         <br>
+      <hr>
+    
+      <h3>Submit a guest post at any time and mint BODO tokens</h3>
+      <br>
+      <p>You can send a text message<br>
+        or only link to image (look at post ID 365).<br><br>
+        Share your post ID with friends or on social media.
+      </p>
+      <br>
+      <input id="sender" type="text" size="20" placeholder="guest name (required)"><br>
+      <input id="message" type="text" size="50" placeholder="message (required)">
+      <p><button id="sendMessage" class="btn btn-primary btn-sm">Submit & Mint</button></p>
+      <div id="lang"></div>
+      <div id="lang1"></div>
+      <br>
+      <p>Current mint amount: 650 BODO (600 for you and 50 for The Book Of Dog)</p>
+      <br>
+      <p><button id="addIconB" class="btn btn-primary btn-sm">add BODO (with icon) to MetaMask</button></p>
+      <br>
+      <img src="img/bodo.png" alt="BODO image" width="128"><br>
+      <br>
+      <p>
+        Name: THE BOOK OF DOG<br>
+        Symbol: BODO<br>
+        Contract (verified):<br>
+        <a href="https://explorer.dogechain.dog/address/0x83f5E6f0Eb916c067b7cCd4E08C7078937Fb4d3B/contracts#address-tabs">0x83f5E6f0Eb916c067b7cCd4E08C7078937Fb4d3B</a><br>
+        <a href="https://explorer.dogmoney.money/address/0x83f5E6f0Eb916c067b7cCd4E08C7078937Fb4d3B/contracts#address-tabs">0x83f5E6f0Eb916c067b7cCd4E08C7078937Fb4d3B</a><br>
+        Initial supply: 0.00000000<br>
+        No hard cap supply<br>
+      </p>
+      <br>
+      <p><button id="totalSupply" class="btn btn-primary btn-sm">Check BODO total (circulating) supply</button></p>
+      <div id="lang2"></div>
+      <br>
 
-         <hr>
+      <hr>
+      
+      <h3>View post(s)</h3>
+      <br>
+      <input id="id" type="text" size="10" placeholder="post ID e.g. 1">
+      <p><button id="viewMessage" class="btn btn-primary btn-sm">View post if you only sent a text message</button></p>
+      <div id="lang3"></div>
+      <br>
+      <input id="id2" type="text" size="10" placeholder="post ID e.g. 1">
+      <p><button id="viewMessage2" class="btn btn-primary btn-sm">View post if you only sent a link to the image</button></p>
+      <div id="lang3"></div>
+      <br>
+      <p><button id="countMessage" class="btn btn-primary btn-sm">Total number (IDs) of posts</button></p>
+      <div id="lang4"></div>
+      <br>
+      <p><button onclick="window.location.href='#guestbook';" class="btn btn-primary btn-sm">View guestbook/posts</button></p>
+      <br>
+      <p>
+        View posts on <a href="https://explorer.dogechain.dog/address/0x83f5E6f0Eb916c067b7cCd4E08C7078937Fb4d3B/transactions">Dogechain explorer</a>.<br>
+        or on <a href="https://explorer.dogmoney.money/address/0x83f5E6f0Eb916c067b7cCd4E08C7078937Fb4d3B/transactions">DogMoney Dogechain explorer</a>.<br>
+        <i>Click/tap any transaction, scroll down to "Input".</i>
+      </p>
+      <br>
+      
+      <hr>
+      
+      <h3>Stake</h3>
+      <br>
+      <p>Stake BODO <img src="img/bodo.png" alt="BODO image" width="56"> and receive <a href="https://invaders.doge.wf">INVADERS</a> <img src="img/invaders.png" alt="INVADERS image" width="56"></p>
+      <p>Reward is continuously compounding: 10% daily per amount staked.<br>
+        If you want to stake more, you must first unstake, otherwise you will lose the calculated reward.<br>
+        <i>No fee for staking or unstaking. The gas price is estimated.</i>
+      </p>
+      <br>
+      <input id="amount1" type="text" size="10" placeholder="amount">
+      <p><button id="approveB" class="btn btn-primary btn-sm">Approve BODO</button>
+      <button id="stake" class="btn btn-primary btn-sm">Stake BODO</button></p>
+      <i>Max 10000 BODO.<br>Wait for confirmation.</i>
+      <div id="lang5"></div>
+      <br>
+      <p><button id="balance" class="btn btn-primary btn-sm">Your balance staked</button></p>
+      <div id="lang6"></div>
+      <br>
+      <p><button id="reward" class="btn btn-primary btn-sm">Calculate reward (INVADERS)</button></p>
+      <div id="lang7"></div>
+      <br>
+      <p><button id="unstake" class="btn btn-primary btn-sm">Unstake BODO and get INVADERS (reward)</button></p>
+      <i>Wait for confirmation.</i>
+      <div id="lang8"></div>
+      <br>
+      <p></p>
+      
+      <p>The Book of Dog Stake contract (verified):<br>
+        <a href="https://explorer.dogechain.dog/address/0x2efDE281498838C5405b4284d87aC319117e9B3C/contracts#address-tabs">0x2efDE281498838C5405b4284d87aC319117e9B3C</a><br>
+        <a href="https://explorer.dogmoney.money/address/0x2efDE281498838C5405b4284d87aC319117e9B3C/transactions">0x2efDE281498838C5405b4284d87aC319117e9B3C</a>
+      </p>
+      <p></p>
+      <p>BODO on <a href="https://app.yodeswap.dog/exchange/swap?inputCurrency=&outputCurrency=0x83f5E6f0Eb916c067b7cCd4E08C7078937Fb4d3B">YodeSwap DEX</a> <img src="img/yodeswap.png" alt="YodeSwap image" width="56"></p>
+      <i>You may need to manually add BODO contract address.</i>
+      <p></p>
+      <p></p>
 
-         <h3>View post(s)</h3>
-         <br>
-         <input id="id" type="text" size="10" placeholder="post ID e.g. 1">
-         <p><button onclick="viewMessage()" class="btn btn-primary btn-sm">View post if you only sent a text message</button></p>
-         <div id="lang3"></div>
-         <br>
-         <input id="id2" type="text" size="10" placeholder="post ID e.g. 1">
-         <p><button onclick="viewMessage2()" class="btn btn-primary btn-sm">View post if you only sent a link to the image</button></p>
-         <div id="lang3"></div>
-         <br>
-         <p><button onclick="countMessage()" class="btn btn-primary btn-sm">Total number (IDs) of posts</button></p>
-         <div id="lang4"></div>
-         <br>
-         <p><button onclick="window.location.href='page1.html';" class="btn btn-primary btn-sm">View guestbook/posts</button></p>
-         <br>
-         <p>
-            View posts on <a href="https://explorer.dogechain.dog/address/0x83f5E6f0Eb916c067b7cCd4E08C7078937Fb4d3B/transactions">Dogechain explorer</a><br>
-            or on <a href="https://explorer.dogmoney.money/address/0x83f5E6f0Eb916c067b7cCd4E08C7078937Fb4d3B/transactions">DogMoney Dogechain explorer</a><br>
-            <i>Click/tap any transaction, scroll down to "Input"</i>
-         </p>
-         <br>
+      <hr>
 
-         <hr>
+      <h3 id="guestbook">View guestbook</h3>
+      <i>It is on the blockchain.</i>
+      <br>
+      <i>Tap/click again if it wasn't sorted correctly.<br>
+        Messages 34-276 are spam. They are hidden here, but can be seen in the Dogechain explorer.
+      </i>
+      <br><br>
 
-         <h3>Stake</h3>
-         <br>
-         <p>Stake BODO <img src="img/bodo.png" alt="BODO image" width="56"> and receive <a href="https://invaders.doge.wf">INVADERS</a> <img src="img/invaders.png" alt="INVADERS image" width="56"></p>
-         <p>Reward is continuously compounding: 10% daily per amount staked<br>
-            If you want to stake more, you must first unstake, otherwise you will lose the calculated reward
-         </p>
-         <div class="row" style="text-align:center">
-            <div>
-               <!-- <button onclick="connect()" class="btn btn-primary btn-sm">Connect</button> -->
-               <p style="font-size: 14px;"><i>Reload the page if you are not connected or undefined</i></p>
-               <br>
-               <input id="amount1" type="text" size="10" placeholder="amount">
-               <br>
-               <button onclick="approve()" class="btn btn-primary btn-sm">Approve BODO</button>
-               <button onclick="stakeTokens()" class="btn btn-primary btn-sm">Stake BODO</button><br>
-               maximum 10000 BODO
-               <div id="lang7">
-               <br>
-            </div>
-            <p></p>
-            <div>
-               <button onclick="stakingBalance()" class="btn btn-primary btn-sm">Your balance staked</button>
-               <div id="lang8"></div>
-               <br>
-            </div>
-            <p></p>
-            <div>
-               <button onclick="calculateReward()" class="btn btn-primary btn-sm">Calculate reward (INVADERS)</button>
-               <div id="lang9"></div>
-               <br>
-            </div>
-            <p></p>
-            <div>
-               <button onclick="unstakeTokens()" class="btn btn-primary btn-sm">Unstake BODO and get INVADERS (reward)</button>
-               <div id="lang10"></div>
-               <br>
-            </div>
-            <p></p>
-         </div>
-         
-         <br>
-         <p>The Book of Dog Stake contract (verified):<br>
-            <a href="https://explorer.dogechain.dog/address/0x2efDE281498838C5405b4284d87aC319117e9B3C/contracts#address-tabs">0x2efDE281498838C5405b4284d87aC319117e9B3C</a><br>
-            <a href="https://explorer.dogmoney.money/address/0x2efDE281498838C5405b4284d87aC319117e9B3C/transactions">0x2efDE281498838C5405b4284d87aC319117e9B3C</a>
-         </p>
-         <p></p>
-         <p>BODO on <a href="https://app.dogmoney.money/swap?inputCurrency=&outputCurrency=0x83f5E6f0Eb916c067b7cCd4E08C7078937Fb4d3B">DogMoney DEX</a> <img src="img/dogmoney.png" alt="DogMoney image" width="56"></p>
-         <br>
-         <p>BODO on <a href="https://dogechain.quickswap.exchange/#/swap?inputCurrency=&outputCurrency=0x83f5E6f0Eb916c067b7cCd4E08C7078937Fb4d3B">QuickSwap DEX</a> <img src="img/quickLogo.png" alt="QuickSwap logo" width="56"> - coming soon</p>
-         <br>
-         <i>You may need to manually add a contract</i>
-         <p></p>
-         <p></p>
+      <p><button id="allMessages1" class="btn btn-primary btn-sm">View guestbook</button> IDs: 1-33</p>
+      <div id="lang9"></div>
+      <br>
+      <p><button id="allMessages2" class="btn btn-primary btn-sm">View guestbook</button> IDs: 277-327</p>
+      <div id="lang10"></div>
+      <br>
+      <p><button id="allMessages3" class="btn btn-primary btn-sm">View guestbook</button> IDs: 328-378</p>
+      <div id="lang11"></div>
+      <br>
+      <p><button id="allMessages4" class="btn btn-primary btn-sm">View guestbook</button> IDs: 379-429</p>
+      <div id="lang12"></div>
+      <br>
+      <p></p>
 
-         <hr>
+      <hr>
 
-         <h3>Check NFT collections</h3>
-         <p></p>
-         <p><a href="https://renderai.art">RENDERAI NFT</a> <img src="img/renderai.png" alt="RENDERAI image" width="56"></p>
-         <p><a href="https://headz.netlify.app">DEADHEADZ NFT</a> <img src="img/deadheadz.png" alt="DEADHEADZ image" width="56"></p>
-         <p></p>
-         <br>
+      <h3>Check NFT collections</h3>
+      <p></p>
+      <p><a href="https://renderai.art">RENDERAI NFT</a> <img src="img/renderai.png" alt="RENDERAI image" width="56"></p>
+      <p><a href="https://headz.netlify.app">DEADHEADZ NFT</a> <img src="img/deadheadz.png" alt="DEADHEADZ image" width="56"></p>
+      <p><a href="https://opendesert.art">Open Desert Multichain wallet and NFT OTC Market</a> <img src="img/opendesert.png" alt="OpenDesert" width="56"></p>
+      <p></p>
+      <br>
 
-         <hr>
+      <hr>
 
-         <p>The Book of Dog is featured on:<br>
-            <a href="https://awesome.dogmoney.money/#apps-social">Awesome Dogmoney</a>
-         </p>
-         <p></p>
+      <p>The Book of Dog is featured on:<br><a href="https://awesome.dogmoney.money/#apps-social">Awesome Dogmoney</a></p>
+      <p></p>
+      <br>
 
-         <footer style="font-size: 14px;">
-            <p><a href="https://t.me/bookofdog_doge"><img src="img/telegram.png" alt="Telegram" width="32"></a>
-               <a href="https://github.com/mazetoken/contracts"><img src="img/github.png" alt="Github" width="32"></a>
-            </p>
-         </footer>
-         <p></p>
-         <br>
-      </div>
+      <footer style="font-size: 14px;">
+        <p><a href="https://t.me/bookofdog_doge"><img src="img/telegram.png" alt="Telegram" width="32"></a>
+          <a href="https://github.com/mazetoken/contracts/tree/main/TheBookOfDog"><img src="img/github.png" alt="Github" width="32"></a>
+        </p>
+      </footer>
+      <p></p>
+      <br>
+    </div>
 
-      <script>
-         web3 = new Web3(window.ethereum);
-         ethereum.request({ method: 'eth_requestAccounts' });
-         var dogMaster;
-         const getAccount = async () => {
-            try {
-            const myAccounts = await web3.eth.getAccounts();
-            dogMaster = myAccounts[0];
-            console.log("Master account" + dogMaster);
-            return myAccounts[0];
-            } catch (err) {
-               console.log(err);
-            };
-         };
-         getAccount();
-         web3.eth.defaultAccount = web3.eth.accounts[0];
-      </script>
-
-      <script>
-         function addIconB() {
-         web3 = new Web3(window.ethereum);
-         const tokenAddress = '0x83f5e6f0eb916c067b7ccd4e08c7078937fb4d3b';
-         const tokenSymbol = 'BODO';
-         const tokenDecimals = 8;
-         const tokenImage = 'https://bafkreicqe43tk2hpwvshrsxidwzc5rbqtg2czntdo5jbgbtnkylirvm3di.ipfs.nftstorage.link';
-            ethereum.request({
-               method: 'wallet_watchAsset',
-               params: {
-               type: 'ERC20',
-               options: {
-                  address: tokenAddress,
-                  symbol: tokenSymbol,
-                  decimals: tokenDecimals,
-                  image: tokenImage,
-               },
-               },
-            });
-         };
-      </script>
-
-      <script src="contractTheBookOfDog.js"></script>
-      <script src="contractTheBookOfDogStake.js"></script>
-      <script src="functions.js"></script>
-      <script src="switch.js"></script>
-   </body>
+    <script src="BODOabi.js"></script>
+    <script src="BODOSabi.js"></script>
+    <script src="functions.js"></script>
+    <script src="switch.js"></script>
+  </body>
 </html>
