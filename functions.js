@@ -22,10 +22,10 @@ if (window.ethereum) {
         var content = "Sending transaction from: ";
         content += account;
         $("#lang").html(content);
-        contract1.methods.sendMessage(sender, message).send({ from: account, value: 10000000000000000, gas: 300000, gasPrice: 250000000000 })
+        contract1.methods.sendMessage(sender, message).send({ from: account, value: 50000000000000000, gas: 300000, gasPrice: 250000000000 })
             .then(function (receipt) {
                 console.log(receipt);
-        var content = "Transaction sent! You got 600 BODO: <br>";
+        var content = "Transaction sent! You got 1000 BODO: <br>";
         content += JSON.stringify(receipt.transactionHash);
         content += "<br> Woof-woof!";
         $("#lang").html(content);
